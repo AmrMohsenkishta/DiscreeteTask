@@ -1,34 +1,62 @@
 ﻿using System;
-public class Exercise28
+class GFG
 {
-    public static void Main()
+    static public void Main()
     {
-        int n, i, sum;
-        int mn, mx;
 
-        Console.Write("\n\n");
-        Console.Write("Find perfect numbers within a given number of range:\n");
-        Console.Write("------------------------------------------------------");
-        Console.Write("\n\n");
+        int a, b, i, j, flag;
 
-        Console.Write("Input the starting range or number : ");
-        mn = Convert.ToInt32(Console.ReadLine());
-        Console.Write("Input the ending range of number : ");
-        mx = Convert.ToInt32(Console.ReadLine());
-        Console.Write("The Perfect numbers within the given range : ");
-        for (n = mn; n <= mx; n++)
+        Console.Write(
+        "Enter lower bound of the interval: ");
+        a = Convert.ToInt32(
+        Console.ReadLine());
+
+        Console.Write(
+        "\nEnter upper bound of the interval: ");
+        b = Convert.ToInt32(
+        Console.ReadLine());
+
+        Console.Write("\nPrime numbers between " + a
+                    + " and " + b + " are: ");
+
+        if (a == 1)
         {
-            i = 1;
-            sum = 0;
-            while (i < n)
+            Console.Write(a + " ");
+            a++;
+            if (b >= 2)
             {
-                if (n % i == 0)
-                    sum = sum + i;
-                i++;
+                Console.Write(a + " ");
+                a++;
             }
-            if (sum == n)
-                Console.Write("{0} ", n);
         }
-        Console.Write("\n");
+        if (a == 2)
+        {
+            Console.Write(a + " ");
+        }
+
+        if (a % 2 == 0)
+        {
+            a++;
+        }
+
+        for (i = a; i <= b; i = i + 2)
+        {
+
+            flag = 1;
+
+            for (j = 2; j * j <= i; ++j)
+            {
+                if (i % j == 0)
+                {
+                    flag = 0;
+                    break;
+                }
+            }
+
+            if (flag == 1)
+            {
+                Console.Write(i + " ");
+            }
+        }
     }
 }
